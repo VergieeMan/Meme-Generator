@@ -7,10 +7,10 @@ export default function Main() {
     })
     
     function handleChange(e) {
-        const {value} = e.currentTarget
+        const {value, name} = e.currentTarget
         setMeme(prev => ({
             ...prev,
-            topText: value
+            [name]: value
         }))
     }
     
@@ -24,6 +24,7 @@ export default function Main() {
                         placeholder="Sending Memes"
                         name="topText"
                         onChange={handleChange}
+                        value = {meme.topText}
                     />
                 </label>
 
@@ -32,6 +33,8 @@ export default function Main() {
                         type="text"
                         placeholder="Creating Memes"
                         name="bottomText"
+                        onChange={handleChange}
+                        value = {meme.bottomText}
                     />
                 </label>
                 <button>Get a new meme image ⏳</button>
